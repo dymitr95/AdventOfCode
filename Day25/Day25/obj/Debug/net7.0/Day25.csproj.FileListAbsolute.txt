@@ -1,0 +1,15 @@
+F:\C#\AdventOfCode\Day25\Day25\bin\Debug\net7.0\Day25.exe
+F:\C#\AdventOfCode\Day25\Day25\bin\Debug\net7.0\Day25.deps.json
+F:\C#\AdventOfCode\Day25\Day25\bin\Debug\net7.0\Day25.runtimeconfig.json
+F:\C#\AdventOfCode\Day25\Day25\bin\Debug\net7.0\Day25.dll
+F:\C#\AdventOfCode\Day25\Day25\bin\Debug\net7.0\Day25.pdb
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.csproj.AssemblyReference.cache
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.GeneratedMSBuildEditorConfig.editorconfig
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.AssemblyInfoInputs.cache
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.AssemblyInfo.cs
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.csproj.CoreCompileInputs.cache
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.dll
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\refint\Day25.dll
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.pdb
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\Day25.genruntimeconfig.cache
+F:\C#\AdventOfCode\Day25\Day25\obj\Debug\net7.0\ref\Day25.dll

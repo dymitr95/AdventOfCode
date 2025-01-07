@@ -1,0 +1,15 @@
+F:\C#\AdventOfCode\Day4\Day4\bin\Debug\net7.0\Day4.exe
+F:\C#\AdventOfCode\Day4\Day4\bin\Debug\net7.0\Day4.deps.json
+F:\C#\AdventOfCode\Day4\Day4\bin\Debug\net7.0\Day4.runtimeconfig.json
+F:\C#\AdventOfCode\Day4\Day4\bin\Debug\net7.0\Day4.dll
+F:\C#\AdventOfCode\Day4\Day4\bin\Debug\net7.0\Day4.pdb
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.csproj.AssemblyReference.cache
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.GeneratedMSBuildEditorConfig.editorconfig
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.AssemblyInfoInputs.cache
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.AssemblyInfo.cs
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.csproj.CoreCompileInputs.cache
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.dll
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\refint\Day4.dll
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.pdb
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\Day4.genruntimeconfig.cache
+F:\C#\AdventOfCode\Day4\Day4\obj\Debug\net7.0\ref\Day4.dll
