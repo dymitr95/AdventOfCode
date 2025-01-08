@@ -9,43 +9,127 @@ reader.Close();
 var gatesValues = PrepareGatesValues(dataString);
 var equations = PrepareEquations(dataString);
 
-
-while (true)
-{
-    var dictEquations = new Dictionary<string, Equation>(equations);
-
-    if (dictEquations.Count == 0)
-    {
-        break;
-    }
-    
-    foreach (var equationResult in dictEquations.Keys)
-    {
-        var equation = dictEquations[equationResult];
-        if (!gatesValues.ContainsKey(equation.GateOne) || !gatesValues.ContainsKey(equation.GateTwo))
-        {
-            continue;
-        }
-
-        var res = equation.GetEquationResult(gatesValues[equation.GateOne], gatesValues[equation.GateTwo]);
-        gatesValues.Add(equationResult, res);
-        equations.Remove(equationResult);
-    }
-}
-
-var ZGates = gatesValues.Where(g => g.Key.StartsWith("z")).ToDictionary(g => g.Key, g => g.Value);
-
-var ZGatesAlphabetically = ZGates.Keys.ToList();
-ZGatesAlphabetically.Sort();
-
 var result = "";
 
-foreach (var gate in ZGatesAlphabetically)
+for (var i = 2; i < 45; i++)
 {
-    result += Convert.ToInt32(ZGates[gate]);
+    var gateNumber = i.ToString();
+    if (gateNumber.Length == 1)
+    {
+        gateNumber = "0" + gateNumber;
+    }
+    
+    var equation = equations["z" + gateNumber];
+    
+    if (equation.Operation != "XOR")
+    {
+        result += $"z{gateNumber}\r\n";
+        continue;
+    }
+
+    var equationOne = equations[equation.GateOne];
+    var equationTwo = equations[equation.GateTwo];
+
+
+    var notOpenGateName =
+        GetNameIfNotOpenGates(equation.GateOne, equation.GateTwo, equationOne, equationTwo, gateNumber);
+
+    if (notOpenGateName != "")
+    {
+        result += $"{notOpenGateName}\r\n";
+        continue;
+    }
+
+    var nextEquation = equationOne.Operation == "OR" ? equationOne : equationTwo;
+
+    var nextEquationOne = equations[nextEquation.GateOne];
+    var nextEquationTwo = equations[nextEquation.GateTwo];
+
+    if (nextEquationOne.Operation != "AND")
+    {
+        result += $"{nextEquation.GateOne}\r\n";
+        continue;
+    }
+    
+    if (nextEquationTwo.Operation != "AND")
+    {
+        result += $"{nextEquation.GateTwo}\r\n";
+    }
 }
 
-Console.WriteLine(GetDecimalValue(result));
+var resArr = result.Split("\r\n");
+
+Array.Sort(resArr);
+
+result = string.Join(",", resArr);
+
+Console.WriteLine(result);
+
+string GetNameIfNotOpenGates(string eqOneName, string eqTwoName, Equation equationOne, Equation equationTwo, string index)
+{
+    if (equationOne.GateOne == "x" + index && equationOne.GateTwo == "y" + index || 
+        equationOne.GateTwo == "x" + index && equationOne.GateOne == "y" + index)
+    {
+        if (equationOne.Operation != "XOR")
+        {
+            return eqOneName;
+        }
+    }else if (equationOne.Operation != "OR")
+    {
+        return eqOneName;
+    }
+    
+    if (equationTwo.GateOne == "x" + index && equationTwo.GateTwo == "y" + index || 
+        equationTwo.GateTwo == "x" + index && equationTwo.GateOne == "y" + index)
+    {
+        if (equationTwo.Operation != "XOR")
+        {
+            return eqTwoName;
+        }
+    }else if (equationTwo.Operation != "OR")
+    {
+        return eqTwoName;
+    }
+
+    return "";
+}
+
+// while (true)
+// {
+//     var dictEquations = new Dictionary<string, Equation>(equations);
+//
+//     if (dictEquations.Count == 0)
+//     {
+//         break;
+//     }
+//     
+//     foreach (var equationResult in dictEquations.Keys)
+//     {
+//         var equation = dictEquations[equationResult];
+//         if (!gatesValues.ContainsKey(equation.GateOne) || !gatesValues.ContainsKey(equation.GateTwo))
+//         {
+//             continue;
+//         }
+//
+//         var res = equation.GetEquationResult(gatesValues[equation.GateOne], gatesValues[equation.GateTwo]);
+//         gatesValues.Add(equationResult, res);
+//         equations.Remove(equationResult);
+//     }
+// }
+//
+// var ZGates = gatesValues.Where(g => g.Key.StartsWith("z")).ToDictionary(g => g.Key, g => g.Value);
+//
+// var ZGatesAlphabetically = ZGates.Keys.ToList();
+// ZGatesAlphabetically.Sort();
+//
+// var result = "";
+//
+// foreach (var gate in ZGatesAlphabetically)
+// {
+//     result += Convert.ToInt32(ZGates[gate]);
+// }
+//
+// Console.WriteLine(GetDecimalValue(result));
 
 ulong GetDecimalValue(string binary)
 {
