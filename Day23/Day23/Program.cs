@@ -30,16 +30,6 @@ var result = 0;
 
 foreach (var connection in connections)
 {
-    // var split = connection.Split(",");
-    // foreach (var conn in split)
-    // {
-    //     if (conn[0] == 't')
-    //     {
-    //         result++;
-    //         Console.WriteLine(connection);
-    //         break;
-    //     }
-    // }
     Console.WriteLine(connection);
 }
 
