@@ -1,0 +1,15 @@
+F:\C#\AdventOfCode\2023\Day1\Day1\bin\Debug\net7.0\Day1.exe
+F:\C#\AdventOfCode\2023\Day1\Day1\bin\Debug\net7.0\Day1.deps.json
+F:\C#\AdventOfCode\2023\Day1\Day1\bin\Debug\net7.0\Day1.runtimeconfig.json
+F:\C#\AdventOfCode\2023\Day1\Day1\bin\Debug\net7.0\Day1.dll
+F:\C#\AdventOfCode\2023\Day1\Day1\bin\Debug\net7.0\Day1.pdb
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.csproj.AssemblyReference.cache
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.GeneratedMSBuildEditorConfig.editorconfig
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.AssemblyInfoInputs.cache
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.AssemblyInfo.cs
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.csproj.CoreCompileInputs.cache
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.dll
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\refint\Day1.dll
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.pdb
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\Day1.genruntimeconfig.cache
+F:\C#\AdventOfCode\2023\Day1\Day1\obj\Debug\net7.0\ref\Day1.dll
