@@ -5,24 +5,77 @@ using var reader = new StreamReader(inputFilePath);
 var dataString = reader.ReadToEnd();
 reader.Close();
 
+var prices = new List<List<long>>();
+var sequences = new List<List<long>>();
 
 var secretNumbers = PrepareSecretNumbers(dataString);
-
-ulong result = 0;
 
 foreach (var secretNumber in secretNumbers)
 {
     var newSecret = secretNumber;
-    for (var i = 0; i < 2000; i++)
+    var sequence = new List<long>();
+    var list = new List<long> { newSecret % 10 };
+
+    for (var i = 0; i < 1999; i++)
     {
         newSecret = GetNextSecret(newSecret);
+        var price = newSecret % 10;
+        list.Add(price);
+        var lastPrice = list[^2];
+        sequence.Add(price - lastPrice);
     }
 
-    result += newSecret;
+    sequences.Add(sequence);
+    prices.Add(list);
 }
-Console.WriteLine(result);
 
-ulong GetNextSecret(ulong secretNumber)
+var bestPrices = PrepareUniqueSequences();
+
+long bestPriceEver = 0;
+var bestSequence = "";
+
+foreach (var price in bestPrices.Where(price => bestPriceEver < price.Value))
+{
+    bestPriceEver = price.Value;
+    bestSequence = price.Key;
+}
+
+
+Console.WriteLine($"Best price: {bestPriceEver}, best sequence: {bestSequence}");
+
+
+Dictionary<string, long> PrepareUniqueSequences()
+{
+    var output = new Dictionary<string, long>();
+
+    for (var i = 0; i < sequences.Count; i++)
+    {
+        var checkedSequences = new List<string>();
+        for (var j = 0; j < sequences[i].Count - 3; j++)
+        {
+            var key = $"{sequences[i][j]},{sequences[i][j + 1]},{sequences[i][j + 2]},{sequences[i][j + 3]}";
+            if (checkedSequences.Contains(key))
+            {
+                continue;
+            }
+
+            checkedSequences.Add(key);
+
+            if (output.ContainsKey(key))
+            {
+                output[key] += prices[i][j + 4];
+            }
+            else
+            {
+                output.Add(key, prices[i][j + 4]);
+            }
+        }
+    }
+
+    return output;
+}
+
+long GetNextSecret(long secretNumber)
 {
     secretNumber = FirstStep(secretNumber);
     secretNumber = SecondStep(secretNumber);
@@ -32,7 +85,7 @@ ulong GetNextSecret(ulong secretNumber)
 }
 
 
-ulong FirstStep(ulong secretNumber)
+long FirstStep(long secretNumber)
 {
     var res = secretNumber * 64;
     secretNumber = Mix(res, secretNumber);
@@ -41,7 +94,7 @@ ulong FirstStep(ulong secretNumber)
     return secretNumber;
 }
 
-ulong SecondStep(ulong secretNumber)
+long SecondStep(long secretNumber)
 {
     var res = secretNumber / 32;
     secretNumber = Mix(res, secretNumber);
@@ -50,7 +103,7 @@ ulong SecondStep(ulong secretNumber)
     return secretNumber;
 }
 
-ulong ThirdStep(ulong secretNumber)
+long ThirdStep(long secretNumber)
 {
     var res = secretNumber * 2048;
     secretNumber = Mix(res, secretNumber);
@@ -59,7 +112,7 @@ ulong ThirdStep(ulong secretNumber)
     return secretNumber;
 }
 
-ulong Mix(ulong value, ulong secretNumber)
+long Mix(long value, long secretNumber)
 {
     if (value == 15 && secretNumber == 42)
     {
@@ -70,7 +123,7 @@ ulong Mix(ulong value, ulong secretNumber)
 }
 
 
-ulong Prune(ulong secretNumber)
+long Prune(long secretNumber)
 {
     if (secretNumber == 100000000)
     {
@@ -81,15 +134,15 @@ ulong Prune(ulong secretNumber)
 }
 
 
-List<ulong> PrepareSecretNumbers(string inputData)
+List<long> PrepareSecretNumbers(string inputData)
 {
-    var output = new List<ulong>();
+    var output = new List<long>();
 
     var dataSplit = inputData.Split("\r\n");
 
     foreach (var data in dataSplit)
     {
-        output.Add(Convert.ToUInt64(data));
+        output.Add(Convert.ToInt64(data));
     }
 
     return output;
