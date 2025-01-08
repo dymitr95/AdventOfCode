@@ -9,31 +9,88 @@ var computersNames = PrepareComputersNames(dataString);
 var computers = PrepareComputers(computersNames);
 ConnectComputers(dataString, computers);
 
-var connections = new HashSet<string>();
+var computersWithConnections = new Dictionary<string, Dictionary<string, int>>();
 
 foreach (var computer in computers)
 {
+    var computerConnections = new Dictionary<string, int>();
     foreach (var connectedComputer in computer.ConnectedComputers)
     {
-        foreach (var lastComputer in connectedComputer.ConnectedComputers)
-        {
-            if (lastComputer.ConnectedComputers.FirstOrDefault(c => c.Name == computer.Name) != null)
-            {
-                connections.Add($"{computer.Name},{connectedComputer.Name},{lastComputer.Name}");
-            }
-        }    
+        computerConnections.Add(connectedComputer.Name, 1);
     }
     
+    computersWithConnections.Add(computer.Name, computerConnections);
 }
 
-var result = 0;
-
-foreach (var connection in connections)
+foreach (var computerName in computersWithConnections.Keys)
 {
-    Console.WriteLine(connection);
+    var computerConnectionsDict = computersWithConnections[computerName];
+
+    foreach (var connectedComputerName in computerConnectionsDict.Keys)
+    {
+        foreach (var connectedComputer in computersWithConnections[connectedComputerName].Keys)
+        {
+            if (computersWithConnections[computerName].ContainsKey(connectedComputer))
+            {
+                computersWithConnections[computerName][connectedComputer] += 1;
+            }
+        }
+    }
+
 }
 
-Console.WriteLine(result / 12);
+var largestConnection = 0;
+var largestComputerCount = 0;
+var largestConnectionComputer = "";
+
+foreach (var computer in computersWithConnections.Keys)
+{
+    var computerWeb = new Dictionary<int, int>();
+    foreach (var connectedComputer in computersWithConnections[computer])
+    {
+        if (computerWeb.ContainsKey(connectedComputer.Value))
+        {
+            computerWeb[connectedComputer.Value] += 1;
+        }
+        else
+        {
+            computerWeb.Add(connectedComputer.Value, 1);
+        }
+    }
+
+    foreach (var conn in computerWeb)
+    {
+        if (conn.Key != conn.Value)
+        {
+            continue;
+        }
+        if (largestConnection < conn.Key && largestComputerCount < conn.Value)
+        {
+            largestConnection = conn.Key;
+            largestComputerCount = conn.Value;
+            largestConnectionComputer = computer;
+        }
+    }
+}
+
+
+var result = largestConnectionComputer;
+foreach (var connectedComputers in computersWithConnections[largestConnectionComputer])
+{
+    if (connectedComputers.Value == largestConnection)
+    {
+        result = result + "," + connectedComputers.Key;
+    }
+}
+
+var answer = result.Split(",");
+
+Array.Sort(answer);
+
+result = string.Join(",", answer);
+
+Console.WriteLine(result);
+
 
 HashSet<string> PrepareComputersNames(string inputData)
 {
