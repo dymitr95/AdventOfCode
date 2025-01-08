@@ -9,180 +9,58 @@ var map = PrepareMap(dataString);
 
 var startPosCoord = GetStartPosition(map);
 var endPosCoord = GetEndPosition(map);
-
-var cheatedPositions = new List<Coord>();
 var normalPathCost = GetPathCost(map, startPosCoord);
 
-var saves = new Dictionary<int, int>();
+var cheats = Cheat(map, 20);
 
 
-for (var i = 0; i < map.Length; i++)
+int Cheat(int[][] map, int maxDistance)
 {
-    for (var j = 0; j < map[i].Length; j++)
+    var cheats = 0;
+
+    for (var i = 0; i < map.Length; i++)
     {
-        if (map[i][j] == -1)
+        for (var j = 0; j < map[i].Length; j++)
         {
-            continue;
-        }
+            if (map[i][j] == -1)
+            {
+                continue;
+            }
 
-        var top = CheatTop(map, new Coord(j, i));
-        if (top != -1)
-        {
-            var newPathCost = normalPathCost - top;
-            if (saves.ContainsKey(newPathCost))
+            for (var k = 0; k < map.Length; k++)
             {
-                saves[newPathCost] += 1;
+                for (var l = 0; l < map[k].Length; l++)
+                {
+                    if (map[k][l] == -1)
+                    {
+                        continue;
+                    }
+                    
+                    var distance = Math.Abs(i - k) + Math.Abs(j - l);
+                    if (distance > maxDistance)
+                    {
+                        continue;
+                    }
+
+                    if (map[i][j] + distance < map[k][l])
+                    {
+                      
+                        if (map[k][l] - map[i][j] - distance >= 100)
+                        {
+                            cheats++;
+                        }
+                    }
+                }
             }
-            else
-            {
-                saves.Add(newPathCost, 1);
-            }
+            
         }
-        
-        var bottom = CheatBottom(map, new Coord(j, i));
-        if (bottom != -1)
-        {
-            var newPathCost = normalPathCost - bottom;
-            if (saves.ContainsKey(newPathCost))
-            {
-                saves[newPathCost] += 1;
-            }
-            else
-            {
-                saves.Add(newPathCost, 1);
-            }
-        }
-        
-        var left = CheatLeft(map, new Coord(j, i));
-        if (left != -1)
-        {
-            var newPathCost = normalPathCost - left;
-            if (saves.ContainsKey(newPathCost))
-            {
-                saves[newPathCost] += 1;
-            }
-            else
-            {
-                saves.Add(newPathCost, 1);
-            }
-        }
-        
-        var right = CheatRight(map, new Coord(j, i));
-        if (right != -1)
-        {
-            var newPathCost = normalPathCost - right;
-            if (saves.ContainsKey(newPathCost))
-            {
-                saves[newPathCost] += 1;
-            }
-            else
-            {
-                saves.Add(newPathCost, 1);
-            }
-        }
-        
     }
-}
 
+    return cheats;
+}
 
 Console.WriteLine($"Normal path cost: {normalPathCost}");
-foreach (var save in saves.Keys)
-{
-    Console.WriteLine($"{saves[save]} cheats saved {save} picoseconds");
-}
-
-var cheats = 0;
-
-foreach (var save in saves.Keys)
-{
-    if (save >= 100)
-    {
-        cheats += saves[save];
-    }
-}
 Console.WriteLine($"Cheats: {cheats}");
-//PrintMap(map);
-
-int CheatTop(int[][] sourceMap, Coord currentCoord)
-{
-    var map = DeepCopyArray(sourceMap);
-    
-    //UP
-    if (currentCoord.Y - 2 >= 0 
-        &&  map[currentCoord.Y - 1][currentCoord.X] == -1
-        &&  map[currentCoord.Y - 2][currentCoord.X] != -1)
-    {
-        var newDistance = map[currentCoord.Y][currentCoord.X] + 2;
-        if (map[currentCoord.Y - 2][currentCoord.X] > newDistance)
-        {
-            var difference = map[currentCoord.Y - 2][currentCoord.X] - newDistance;
-            return map[endPosCoord.Y][endPosCoord.X] - difference;
-        }
-    }
-
-    return -1;
-}
-
-int CheatBottom(int[][] sourceMap, Coord currentCoord)
-{
-    var map = DeepCopyArray(sourceMap);
-    
-    //DOWN
-    if (currentCoord.Y + 2 <= map.Length - 1 
-        &&  map[currentCoord.Y + 1][currentCoord.X] == -1
-        &&  map[currentCoord.Y + 2][currentCoord.X] != -1)
-    {
-        var newDistance = map[currentCoord.Y][currentCoord.X] + 2;
-        if (map[currentCoord.Y + 2][currentCoord.X] > newDistance)
-        {
-            var difference = map[currentCoord.Y + 2][currentCoord.X] - newDistance;
-            return map[endPosCoord.Y][endPosCoord.X] - difference;
-        }
-    }
-
-    return -1;
-}
-
-int CheatLeft(int[][] sourceMap, Coord currentCoord)
-{
-    var map = DeepCopyArray(sourceMap);
-    
-    //LEFT
-    if (currentCoord.X - 2 >= 0 
-        &&  map[currentCoord.Y][currentCoord.X - 1] == -1
-        &&  map[currentCoord.Y][currentCoord.X - 2] != -1)
-    {
-        var newDistance = map[currentCoord.Y][currentCoord.X] + 2;
-        if (map[currentCoord.Y][currentCoord.X - 2] > newDistance)
-        {
-            var difference = map[currentCoord.Y][currentCoord.X - 2] - newDistance;
-            return map[endPosCoord.Y][endPosCoord.X] - difference;
-        }
-    }
-
-    return -1;
-}
-
-int CheatRight(int[][] sourceMap, Coord currentCoord)
-{
-    var map = DeepCopyArray(sourceMap);
-    
-    //RIGHT
-    if (currentCoord.X + 2 <= map[0].Length - 1
-        &&  map[currentCoord.Y][currentCoord.X + 1] == -1
-        &&  map[currentCoord.Y][currentCoord.X + 2] != -1)
-    {
-        var newDistance = map[currentCoord.Y][currentCoord.X] + 2;
-        if (map[currentCoord.Y][currentCoord.X + 2] > newDistance)
-        {
-            var difference = map[currentCoord.Y][currentCoord.X + 2] - newDistance;
-            return map[endPosCoord.Y][endPosCoord.X] - difference;
-        }
-    }
-
-    return -1;
-}
-
 
 int GetPathCost(int[][] map, Coord startPos)
 {
@@ -237,23 +115,6 @@ int GetPathCost(int[][] map, Coord startPos)
     return map[endPosCoord.Y][endPosCoord.X];
 }
 
-
-int[][] DeepCopyArray(int[][] source)
-{
-    var result = new int[source.Length][];
-    for (var i = 0; i < source.Length; i++)
-    {
-        result[i] = new int[source[i].Length];
-        for (var j = 0; j < source[i].Length; j++)
-        {
-            result[i][j] = source[i][j];
-        }
-    }
-
-    return result;
-}
-
-
 Coord GetEndPosition(int[][] map)
 {
     for (var i = 0; i < map.Length; i++)
@@ -288,36 +149,6 @@ Coord GetStartPosition(int[][] map)
     return null;
 }
 
-void PrintMap(int[][] map)
-{
-    for (var i = 0; i < map.Length; i++)
-    {
-        for (var j = 0; j < map[i].Length; j++)
-        {
-            switch (map[i][j])
-            {
-                case 0:
-                    Console.Write("S");
-                    break;
-                case 999999:
-                    Console.Write(".");
-                    break;
-                case -1:
-                    Console.Write("#");
-                    break;
-            }
-
-            if (i == endPosCoord.Y && j == endPosCoord.X)
-            {
-                Console.Write("E");
-            }
-        }
-
-        Console.Write("\r\n");
-    }
-}
-
-
 int[][] PrepareMap(string inputData)
 {
     var dataSplit = inputData.Split("\r\n");
@@ -343,7 +174,6 @@ int[][] PrepareMap(string inputData)
 
     return output;
 }
-
 
 class Coord
 {
