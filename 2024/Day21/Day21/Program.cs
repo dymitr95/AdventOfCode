@@ -37,7 +37,7 @@ foreach (var code in codes)
     // moves = GetMoves(robotKeypadDistances, moves);
     // moves = GetMoves(robotKeypadDistances, moves);
 
-    res += GetLength(code, 26, true) * Convert.ToUInt64(code[..3]);
+    res += GetLength(code, 3, true) * Convert.ToUInt64(code[..3]);
 }
 
 

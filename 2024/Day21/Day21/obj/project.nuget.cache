@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rKtkoEe5U9q7unJX7m2+60+mG51GGoEM3jj8h/DhxcupQ/XLZ2Atc+dxLgV/mo+7rFOl6W4QR9vK4NoEZsFnKg==",
+  "dgSpecHash": "PYmVPgUdOxuZCMqJylVLLerQmaRzgAkA2GXA7tUDoLF26LALwy+iat/ZdTBW2X0YSL2KNxXy+bQKOeXIsGQglQ==",
   "success": true,
-  "projectFilePath": "F:\\C#\\AdventOfCode\\Day21\\Day21\\Day21.csproj",
+  "projectFilePath": "D:\\dymitr\\C#\\AdventOfCode\\2024\\Day21\\Day21\\Day21.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
