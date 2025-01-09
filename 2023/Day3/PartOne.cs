@@ -148,9 +148,11 @@ public class PartOne
 
 class Value
 {
+    public int Id { get; set; }
     public string Val { get; set; }
     public HashSet<Coord> Coords { get; set; }
 
+    public Coord GearPosition { get; set; }
 
     public Value()
     {
