@@ -2,8 +2,6 @@
 
 public class PartOne
 {
-
-
     public int Run(string inputData)
     {
         var result = 0;
@@ -12,7 +10,73 @@ public class PartOne
         var values = valuesAndSymbols.Item1;
         var symbols = valuesAndSymbols.Item2;
 
+        foreach (var value in values)
+        {
+            foreach (var coord in value.Coords)
+            {
+                if (IsAdjacentToSymbol(coord, symbols))
+                {
+                    result += Convert.ToInt32(value.Val);
+                    break;
+                }
+            }
+        }
+
         return result;
+    }
+
+
+    private bool IsAdjacentToSymbol(Coord valueCoord, List<Coord> coords)
+    {
+        //UP
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X && c.Y == valueCoord.Y - 1) != null)
+        {
+            return true;
+        }
+
+        //DOWN
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X && c.Y == valueCoord.Y + 1) != null)
+        {
+            return true;
+        }
+
+        //LEFT
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X - 1 && c.Y == valueCoord.Y) != null)
+        {
+            return true;
+        }
+
+        //RIGHT
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X + 1 && c.Y == valueCoord.Y) != null)
+        {
+            return true;
+        }
+
+        //TOP LEFT
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X - 1 && c.Y == valueCoord.Y - 1) != null)
+        {
+            return true;
+        }
+
+        //TOP RIGHT
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X + 1 && c.Y == valueCoord.Y - 1) != null)
+        {
+            return true;
+        }
+
+        //BOTTOM LEFT
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X - 1 && c.Y == valueCoord.Y + 1) != null)
+        {
+            return true;
+        }
+
+        //BOTTOM RIGHT
+        if (coords.FirstOrDefault(c => c.X == valueCoord.X + 1 && c.Y == valueCoord.Y + 1) != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -28,10 +92,9 @@ public class PartOne
             var dataRow = dataSplit[i].ToCharArray();
 
             Value value = null;
-            
+
             for (var j = 0; j < dataRow.Length; j++)
             {
-                
                 if (dataRow[j] == '.')
                 {
                     if (value != null)
@@ -39,12 +102,25 @@ public class PartOne
                         values.Add(value);
                         value = null;
                     }
+
                     continue;
                 }
-                
+
+                if (Convert.ToInt32(dataRow[j]) < 48 || Convert.ToInt32(dataRow[j]) > 57)
+                {
+                    if (value != null)
+                    {
+                        values.Add(value);
+                        value = null;
+                    }
+                    
+                    symbols.Add(new Coord(j, i));
+                    
+                    continue;
+                }
+
                 if (Convert.ToInt32(dataRow[j]) >= 48 && Convert.ToInt32(dataRow[j]) <= 57)
                 {
-
                     if (value == null)
                     {
                         value = new Value();
@@ -57,10 +133,7 @@ public class PartOne
                         value.Val += dataRow[j].ToString();
                     }
                     
-                    continue;
                 }
-
-                symbols.Add(new Coord(j,i));
             }
 
             if (value != null)
@@ -71,7 +144,6 @@ public class PartOne
 
         return (values, symbols);
     }
-    
 }
 
 class Value
