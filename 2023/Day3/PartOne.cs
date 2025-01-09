@@ -7,41 +7,93 @@ public class PartOne
     public int Run(string inputData)
     {
         var result = 0;
-        var map = PrepareMap(inputData);
+        var valuesAndSymbols = PrepareData(inputData);
+
+        var values = valuesAndSymbols.Item1;
+        var symbols = valuesAndSymbols.Item2;
 
         return result;
     }
 
 
-    private int[][] PrepareMap(string input)
+    private (List<Value>, List<Coord>) PrepareData(string input)
     {
         var dataSplit = input.Split("\r\n");
-        var output = new int[dataSplit.Length][];
+
+        var values = new List<Value>();
+        var symbols = new List<Coord>();
 
         for (var i = 0; i < dataSplit.Length; i++)
         {
             var dataRow = dataSplit[i].ToCharArray();
-            output[i] = new int[dataRow.Length];
 
+            Value value = null;
+            
             for (var j = 0; j < dataRow.Length; j++)
             {
-                if (Convert.ToInt32(dataRow[j]) >= 48 && Convert.ToInt32(dataRow[j]) <= 57)
-                {
-                    output[i][j] = Convert.ToInt32(dataRow[j].ToString());
-                    continue;
-                }
-
+                
                 if (dataRow[j] == '.')
                 {
-                    output[i][j] = -1;
+                    if (value != null)
+                    {
+                        values.Add(value);
+                        value = null;
+                    }
                     continue;
                 }
                 
-                output[i][j] = -2;
+                if (Convert.ToInt32(dataRow[j]) >= 48 && Convert.ToInt32(dataRow[j]) <= 57)
+                {
+
+                    if (value == null)
+                    {
+                        value = new Value();
+                        value.Coords.Add(new Coord(j, i));
+                        value.Val += dataRow[j].ToString();
+                    }
+                    else
+                    {
+                        value.Coords.Add(new Coord(j, i));
+                        value.Val += dataRow[j].ToString();
+                    }
+                    
+                    continue;
+                }
+
+                symbols.Add(new Coord(j,i));
+            }
+
+            if (value != null)
+            {
+                values.Add(value);
             }
         }
 
-        return output;
+        return (values, symbols);
     }
     
+}
+
+class Value
+{
+    public string Val { get; set; }
+    public HashSet<Coord> Coords { get; set; }
+
+
+    public Value()
+    {
+        Coords = new HashSet<Coord>();
+    }
+}
+
+class Coord
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+
+    public Coord(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
 }
