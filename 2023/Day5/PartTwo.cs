@@ -1,9 +1,7 @@
 ﻿namespace Day5;
 
-public class PartOne
+public class PartTwo
 {
-
-
     public long Run(string input)
     {
         var seeds = GetSeeds(input);
@@ -15,40 +13,55 @@ public class PartOne
             maps.Add(GetMap(mapsInput[i].Split(":\r\n")[1]));
         }
 
-        var results = new List<long>();
+        long min = -1;
 
-        foreach (var seed in seeds)
+        for (var i = 0; i < seeds.Count; i += 2)
         {
-
-            var number = seed;
+            var number = seeds[i];
+            var range = seeds[i + 1];
             foreach (var map in maps)
             {
-                var res = GetNumber(number, map);
+                var res = GetNumber(number, range, map);
                 number = res;
             }
-            results.Add(number);
+
+            if (min == -1)
+            {
+                min = number;
+            }
+            else if (min > number)
+            {
+                min = number;
+            }
         }
-        
-        
-        return results.Min();
+
+
+        return min;
     }
 
 
-
-    private long GetNumber(long sourceNumber, List<Map> map)
+    private long GetNumber(long sourceNumber, long range, List<Map> map)
     {
+        var min = sourceNumber;
 
         foreach (var mapElement in map)
         {
             if (sourceNumber >= mapElement.Source && sourceNumber <= mapElement.Source + mapElement.Length)
             {
-                return sourceNumber + (mapElement.Destination - mapElement.Source);
+                var number = sourceNumber + (mapElement.Destination - mapElement.Source);
+                var newRange = range - (mapElement.Source + mapElement.Length - sourceNumber);
+                var nextNumber = mapElement.Source + mapElement.Length + 1;
+                if (newRange > 0)
+                {
+                    var res = GetNumber(nextNumber, newRange, map);
+                    return number > res ? res : number;
+                }
             }
         }
-        
-        return sourceNumber;
+
+        return min;
     }
-    
+
 
     private List<long> GetSeeds(string input)
     {
@@ -60,6 +73,7 @@ public class PartOne
 
         return output;
     }
+
     private List<Map> GetMap(string inputMap)
     {
         var output = new List<Map>();
@@ -72,10 +86,10 @@ public class PartOne
             var source = Convert.ToInt64(data[1]);
             var destination = Convert.ToInt64(data[0]);
             var length = Convert.ToInt64(data[2]);
-            
+
             output.Add(new Map(source, destination, length));
         }
-        
+
 
         return output;
     }
