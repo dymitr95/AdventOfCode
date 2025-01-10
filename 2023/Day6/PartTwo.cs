@@ -2,19 +2,21 @@
 
 namespace Day6;
 
-public class PartOne
+public class PartTwo
 {
-    public int Run(string input)
+    public ulong Run(string input)
     {
-        var races = GetRaces(input);
+        var race = GetRace(input);
 
-        return races.Aggregate(1, (current, race) => current * GetWaysToWin(race));
+        var result = GetWaysToWin(race);
+        
+        return result;
     }
 
 
-    private int GetWaysToWin(Race race)
+    private ulong GetWaysToWin(Race race)
     {
-        var output = 0;
+        ulong output = 0;
 
         for (ulong i = 0; i < race.Time; i++)
         {
@@ -26,41 +28,30 @@ public class PartOne
             {
                 continue;
             }
-            
+
             if (traveledDistance < race.Distance)
             {
                 return output;
             }
 
             output++;
-
         }
 
         return output;
     }
 
 
-    private List<Race> GetRaces(string input)
+    private Race GetRace(string input)
     {
-        var output = new List<Race>();
         input = Regex.Replace(input, @"\s+", " ");
         input = input.Replace("Time: ", "");
         input = input.Replace(" Distance: ", "/");
 
         var dataRows = input.Split("/");
 
-        var times = dataRows[0].Split(" ");
-        var distances = dataRows[1].Split(" ");
+        var time = Convert.ToUInt64(dataRows[0].Replace(" ", ""));
+        var distance = Convert.ToUInt64(dataRows[1].Replace(" ", ""));
 
-        for (var i = 0; i < times.Length; i++)
-        {
-            var time = Convert.ToUInt64(times[i]);
-            var distance = Convert.ToUInt64(distances[i]);
-
-            output.Add(new Race(time, distance));
-        }
-
-
-        return output;
+        return new Race(time, distance);
     }
 }

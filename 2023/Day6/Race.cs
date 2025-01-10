@@ -2,12 +2,12 @@
 
 public class Race
 {
-    public int Time { get; set; }
-    public int Distance { get; set; }
+    public ulong Time { get; set; }
+    public ulong Distance { get; set; }
 
 
 
-    public Race(int time, int distance)
+    public Race(ulong time, ulong distance)
     {
         Time = time;
         Distance = distance;
