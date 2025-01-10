@@ -9,4 +9,13 @@ reader.Close();
 
 
 var partOne = new PartOne();
-partOne.Run(dataString);
+var resultOne = partOne.Run(dataString);
+
+var partTwo = new PartTwo();
+var resultTwo = partTwo.Run(dataString);
+
+
+
+
+Console.WriteLine($"Result one: {resultOne}");
+Console.WriteLine($"Result two: {resultTwo}");
