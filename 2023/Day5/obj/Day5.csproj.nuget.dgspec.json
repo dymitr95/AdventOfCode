@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day3\\Day3.csproj": {}
+    "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj": {}
   },
   "projects": {
-    "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day3\\Day3.csproj": {
+    "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day3\\Day3.csproj",
-        "projectName": "Day3",
-        "projectPath": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day3\\Day3.csproj",
+        "projectUniqueName": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj",
+        "projectName": "Day5",
+        "projectPath": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj",
         "packagesPath": "C:\\Users\\dymitr\\.nuget\\packages\\",
-        "outputPath": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day3\\obj\\",
+        "outputPath": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dymitr\\AppData\\Roaming\\NuGet\\NuGet.Config",
