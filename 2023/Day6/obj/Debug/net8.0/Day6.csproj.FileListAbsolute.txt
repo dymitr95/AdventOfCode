@@ -1,0 +1,15 @@
+D:\dymitr\C#\AdventOfCode\2023\Day6\bin\Debug\net8.0\Day6.exe
+D:\dymitr\C#\AdventOfCode\2023\Day6\bin\Debug\net8.0\Day6.deps.json
+D:\dymitr\C#\AdventOfCode\2023\Day6\bin\Debug\net8.0\Day6.runtimeconfig.json
+D:\dymitr\C#\AdventOfCode\2023\Day6\bin\Debug\net8.0\Day6.dll
+D:\dymitr\C#\AdventOfCode\2023\Day6\bin\Debug\net8.0\Day6.pdb
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.GeneratedMSBuildEditorConfig.editorconfig
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.AssemblyInfoInputs.cache
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.AssemblyInfo.cs
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.csproj.CoreCompileInputs.cache
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.sourcelink.json
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.dll
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\refint\Day6.dll
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.pdb
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\Day6.genruntimeconfig.cache
+D:\dymitr\C#\AdventOfCode\2023\Day6\obj\Debug\net8.0\ref\Day6.dll
