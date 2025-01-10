@@ -14,6 +14,10 @@ public class PartOne
 
         return result;
     }
+    
+    
+    
+    
 
 
     private (List<Value>, List<Coord>) PrepareData(string input)
