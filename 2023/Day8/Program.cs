@@ -9,11 +9,11 @@ reader.Close();
 
 
 
-var partOne = new PartOne();
-var firstResult = partOne.Run(dataString);
+// var partOne = new PartOne();
+// var firstResult = partOne.Run(dataString);
 
 var partTwo = new PartTwo();
 var secondResult = partTwo.Run(dataString);
 
-Console.WriteLine($"First result: {firstResult}");
+// Console.WriteLine($"First result: {firstResult}");
 Console.WriteLine($"Second result: {secondResult}");

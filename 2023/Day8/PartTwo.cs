@@ -1,22 +1,43 @@
-﻿namespace Day8;
+﻿
+namespace Day8;
 
 public class PartTwo
 {
-    public int Run(string input)
+    public ulong Run(string input)
     {
-        var result = 0;
+        ulong result = 1;
 
         var instructions = GetInstructions(input);
 
         var nodes = PrepareNodes(input);
 
-        var actualKey = "AAA";
-        
+        var actualKeys = nodes.Keys.Where(k => k.EndsWith('A')).ToList();
+
+        var paths = new List<int>();
+
+        foreach (var key in actualKeys)
+        {
+            paths.Add(GetPathLength(key, instructions, nodes));
+        }
+
+        foreach (var path in paths)
+        {
+            result = GetLCM((ulong)path, result);
+        }
+
+        return result;
+    }
+
+
+
+    private int GetPathLength(string actualKey, string instructions, Dictionary<string, List<string>> nodes)
+    {
+        var result = 0;
         while (true)
         {
             foreach (var instruction in instructions.ToCharArray())
             {
-                if (actualKey == "ZZZ")
+                if (actualKey.EndsWith('Z'))
                 {
                     return result;
                 }
@@ -30,7 +51,23 @@ public class PartTwo
         }
     }
 
+    
+    private ulong GetLCM(ulong a, ulong b)
+    {
+        return a * b / GetGCD(a, b);
+    }
 
+    private ulong GetGCD(ulong a, ulong b)
+    {
+        while (b != 0)
+        {
+            ulong temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    
 
     private string GetInstructions(string input)
     {
