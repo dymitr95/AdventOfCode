@@ -1,3 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Day7;
 
-Console.WriteLine("Hello, World!");
+const string inputFilePath = "./Input/input.txt";
+
+using var reader = new StreamReader(inputFilePath);
+
+var dataString = reader.ReadToEnd();
+reader.Close();
+
+
+
+var partOne = new PartOne();
+var firstResult = partOne.Run(dataString);
+
+// var partTwo = new PartTwo();
+// var secondResult = partTwo.Run(dataString);
+
+Console.WriteLine($"First result: {firstResult}");
+// Console.WriteLine($"Second result: {secondResult}");
