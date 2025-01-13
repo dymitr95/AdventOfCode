@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\dymitr\\.nuget\\packages\\": {}
+    "C:\\Users\\ddrag\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj",
+      "projectUniqueName": "F:\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj",
       "projectName": "Day5",
-      "projectPath": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj",
-      "packagesPath": "C:\\Users\\dymitr\\.nuget\\packages\\",
-      "outputPath": "D:\\dymitr\\C#\\AdventOfCode\\2023\\Day5\\obj\\",
+      "projectPath": "F:\\C#\\AdventOfCode\\2023\\Day5\\Day5.csproj",
+      "packagesPath": "C:\\Users\\ddrag\\.nuget\\packages\\",
+      "outputPath": "F:\\C#\\AdventOfCode\\2023\\Day5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dymitr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ddrag\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -40,7 +40,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -61,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

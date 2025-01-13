@@ -2,7 +2,7 @@
 
 public class PartTwo
 {
-    public long Run(string input)
+    public ulong Run(string input)
     {
         var seeds = GetSeeds(input);
         var maps = new List<List<Map>>();
@@ -13,63 +13,59 @@ public class PartTwo
             maps.Add(GetMap(mapsInput[i].Split(":\r\n")[1]));
         }
 
-        long min = -1;
+        ulong min = 0;
 
         for (var i = 0; i < seeds.Count; i += 2)
         {
-            var number = seeds[i];
+            
             var range = seeds[i + 1];
-            foreach (var map in maps)
+            for (var j = seeds[i]; j < seeds[i] + range; j++)
             {
-                var res = GetNumber(number, range, map);
-                number = res;
-            }
-
-            if (min == -1)
-            {
-                min = number;
-            }
-            else if (min > number)
-            {
-                min = number;
-            }
-        }
-
-
-        return min;
-    }
-
-
-    private long GetNumber(long sourceNumber, long range, List<Map> map)
-    {
-        var min = sourceNumber;
-
-        foreach (var mapElement in map)
-        {
-            if (sourceNumber >= mapElement.Source && sourceNumber <= mapElement.Source + mapElement.Length)
-            {
-                var number = sourceNumber + (mapElement.Destination - mapElement.Source);
-                var newRange = range - (mapElement.Source + mapElement.Length - sourceNumber);
-                var nextNumber = mapElement.Source + mapElement.Length + 1;
-                if (newRange > 0)
+                var number = j;
+                foreach (var map in maps)
                 {
-                    var res = GetNumber(nextNumber, newRange, map);
-                    return number > res ? res : number;
+                    var res = GetNumber(number, map);
+                    number = res;
+                }
+
+                if (min == 0)
+                {
+                    min = number;
+                }
+                else if (min > number)
+                {
+                    min = number;
                 }
             }
         }
 
+
         return min;
     }
 
 
-    private List<long> GetSeeds(string input)
+    private ulong GetNumber(ulong sourceNumber, List<Map> map)
     {
-        var output = new List<long>();
+        foreach (var mapElement in map)
+        {
+            if (sourceNumber >= (ulong)mapElement.Source &&
+                sourceNumber <= (ulong)mapElement.Source + (ulong)mapElement.Length)
+            {
+                return sourceNumber + (ulong)(mapElement.Destination - mapElement.Source);
+            }
+        }
+
+        return sourceNumber;
+    }
+
+
+    private List<ulong> GetSeeds(string input)
+    {
+        var output = new List<ulong>();
         var seedsRow = input.Split("\r\n")[0];
         var seeds = seedsRow.Split(": ")[1];
 
-        output.AddRange(seeds.Split(" ").Select(s => Convert.ToInt64(s)));
+        output.AddRange(seeds.Split(" ").Select(s => Convert.ToUInt64(s)));
 
         return output;
     }

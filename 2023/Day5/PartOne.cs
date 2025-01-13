@@ -2,8 +2,6 @@
 
 public class PartOne
 {
-
-
     public long Run(string input)
     {
         var seeds = GetSeeds(input);
@@ -37,7 +35,6 @@ public class PartOne
 
     private long GetNumber(long sourceNumber, List<Map> map)
     {
-
         foreach (var mapElement in map)
         {
             if (sourceNumber >= mapElement.Source && sourceNumber <= mapElement.Source + mapElement.Length)
