@@ -3,6 +3,7 @@ using _2016.Day1;
 
 //DAY 1
 Console.WriteLine("> Day 1 <");
-var day1 = new Day<int>("./Input/day1.txt");
+var day1 = new Day<int, int>("./Input/day1.txt");
 day1.RunPartOne(new Day1Part1());
+day1.RunPartTwo(new Day1Part2());
 Console.WriteLine(new string('-', 20));

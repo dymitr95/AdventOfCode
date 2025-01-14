@@ -2,7 +2,7 @@
 
 namespace _2016;
 
-public class Day<T>
+public class Day<T1,T2>
 {
     private string Input { get; }
 
@@ -11,7 +11,7 @@ public class Day<T>
         Input = GetInput(inputPath);
     }
 
-    public void RunPartOne(Part<T> partOne)
+    public void RunPartOne(Part<T1> partOne)
     {
         var stopwatch = Stopwatch.StartNew();
         Console.WriteLine($"First result: {partOne.Run(Input)}");
@@ -19,7 +19,7 @@ public class Day<T>
         Console.WriteLine($"Runtime: {stopwatch.ElapsedMilliseconds} ms");
     }
 
-    public void RunPartTwo(Part<T> partTwo)
+    public void RunPartTwo(Part<T2> partTwo)
     {
         var stopwatch = Stopwatch.StartNew();
         Console.WriteLine($"Second result: {partTwo.Run(Input)}");
