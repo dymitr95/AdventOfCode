@@ -26,22 +26,28 @@ public class Day3Part2 : Part<int>
         var rows = input.Split("\r\n");
         var output = new List<List<int>>();
 
-        foreach (var row in rows)
+
+        
+        for (var i = 0; i < rows.Length; i += 3)
         {
-            var sides = row.Split("  ");
-            var triangle = new List<int>();
-            foreach (var side in sides)
+            var triangleOne = new List<int>();
+            var triangleTwo = new List<int>();
+            var triangleThree = new List<int>();
+            var values = new List<int>();
+
+            for (var j = 0; j < 3; j++)
             {
-                if (side == "")
-                {
-                    continue;
-                }
-
-                var sideVal = Convert.ToInt32(side);
-                triangle.Add(sideVal);
+                var sides = rows[j + i].Split("  ");
+                values.Clear();
+                values.AddRange(from side in sides where side != "" select Convert.ToInt32(side));
+                triangleOne.Add(values[0]);
+                triangleTwo.Add(values[1]);
+                triangleThree.Add(values[2]);
             }
-
-            output.Add(triangle);
+            
+            output.Add(triangleOne);
+            output.Add(triangleTwo);
+            output.Add(triangleThree);
         }
 
         return output;
