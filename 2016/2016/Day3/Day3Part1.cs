@@ -24,29 +24,6 @@ public class Day3Part1 : Part<int>
     private List<List<int>> GetTriangles(string input)
     {
         var rows = input.Split("\r\n");
-        var output = new List<List<int>>();
-
-        foreach (var row in rows)
-        {
-
-            var sides = row.Split("  ");
-            var triangle = new List<int>();
-            foreach (var side in sides)
-            {
-                try
-                {
-                    var sideVal = Convert.ToInt32(side);
-                    triangle.Add(sideVal);
-                }
-                catch (Exception e)
-                {
-                    // ignored
-                }
-            }
-            output.Add(triangle);
-
-        }
-        
-        return output;
+        return rows.Select(row => row.Split("  ")).Select(sides => (from side in sides where side != "" select Convert.ToInt32(side)).ToList()).ToList();
     } 
 }

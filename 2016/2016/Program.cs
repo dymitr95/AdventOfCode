@@ -24,7 +24,7 @@ Console.WriteLine(new string('-', 20));
 //DAY 3
 Console.WriteLine("> Day 3 <");
 var day3 = new Day<int, int>("./Input/day3.txt");
-totalTime += day3.RunPartOne(new Day3Part1());
+//totalTime += day3.RunPartOne(new Day3Part1());
 totalTime += day3.RunPartTwo(new Day3Part2());
 Console.WriteLine(new string('-', 20));
 
