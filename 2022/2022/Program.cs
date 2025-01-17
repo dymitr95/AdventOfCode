@@ -1,6 +1,7 @@
 ﻿using _2022;
 using _2022.Day1;
 using _2022.Day2;
+using _2022.Day3;
 
 var totalTime = 0.0;
 
@@ -19,6 +20,11 @@ totalTime += day2.RunPartOne(new Day2Part1());
 totalTime += day2.RunPartTwo(new Day2Part2());
 Console.WriteLine(new string('-', 20));
 
-
+//DAY 3
+Console.WriteLine("> Day 3 <");
+var day3 = new Day<int, int>("./Input/day3.txt");
+totalTime += day3.RunPartOne(new Day3Part1());
+totalTime += day3.RunPartTwo(new Day3Part2());
+Console.WriteLine(new string('-', 20));
 
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");
