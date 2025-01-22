@@ -1,0 +1,15 @@
+F:\C#\AdventOfCode\2020\2020\bin\Debug\net8.0\2020.exe
+F:\C#\AdventOfCode\2020\2020\bin\Debug\net8.0\2020.deps.json
+F:\C#\AdventOfCode\2020\2020\bin\Debug\net8.0\2020.runtimeconfig.json
+F:\C#\AdventOfCode\2020\2020\bin\Debug\net8.0\2020.dll
+F:\C#\AdventOfCode\2020\2020\bin\Debug\net8.0\2020.pdb
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.GeneratedMSBuildEditorConfig.editorconfig
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.AssemblyInfoInputs.cache
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.AssemblyInfo.cs
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.csproj.CoreCompileInputs.cache
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.sourcelink.json
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.dll
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\refint\2020.dll
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.pdb
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\2020.genruntimeconfig.cache
+F:\C#\AdventOfCode\2020\2020\obj\Debug\net8.0\ref\2020.dll
