@@ -1,6 +1,6 @@
 ﻿namespace _2018.Day1;
 
-public class Day1Part2: Part<int>
+public class Day1Part2 : Part<int>
 {
     public override int Run(string input)
     {
@@ -8,22 +8,19 @@ public class Day1Part2: Part<int>
 
         var rows = input.Split("\r\n");
 
-        foreach (var row in rows)
+        var frequencies = new HashSet<int> { 0 };
+
+        while (true)
         {
-            var numb = Convert.ToInt32(row);
-
-            while (true)
+            foreach (var row in rows)
             {
-                numb = (int)Math.Floor((double)numb / 3) - 2;
-                if (numb <= 0)
-                {
-                    break;
-                }
-
+                var numb = Convert.ToInt32(row);
                 result += numb;
+                if (!frequencies.Add(result))
+                {
+                    return result;
+                }
             }
         }
-
-        return result;
     }
 }
