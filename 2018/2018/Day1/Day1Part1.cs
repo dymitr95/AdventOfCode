@@ -11,7 +11,7 @@ public class Day1Part1 : Part<int>
         foreach (var row in rows)
         {
             var numb = Convert.ToInt32(row);
-            result += (int)Math.Floor((double)numb / 3) - 2;
+            result += numb;
         }
 
         return result;
