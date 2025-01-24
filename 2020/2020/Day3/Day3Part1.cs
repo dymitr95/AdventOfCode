@@ -25,6 +25,6 @@ public class Day3Part1 : Part<int>
             x += 3;
         }
 
-        return result + 1;
+        return result;
     }
 }
