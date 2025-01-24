@@ -1,0 +1,15 @@
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\2019.exe
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\2019.deps.json
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\2019.runtimeconfig.json
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\2019.dll
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\2019.pdb
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.GeneratedMSBuildEditorConfig.editorconfig
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.AssemblyInfoInputs.cache
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.AssemblyInfo.cs
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.csproj.CoreCompileInputs.cache
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.sourcelink.json
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.dll
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\refint\2019.dll
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.pdb
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.genruntimeconfig.cache
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\ref\2019.dll
