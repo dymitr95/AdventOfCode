@@ -6,12 +6,19 @@ public class Day1Part1 : Part<int>
     {
         var result = 0;
 
-        var rows = input.Split("\r\n");
-
-        foreach (var row in rows)
+        for (var i = 0; i < input.Length; i++)
         {
-            var numb = Convert.ToInt32(row);
-            result += numb;
+            var nextIndex = i + 1;
+            if (i == input.Length - 1)
+            {
+                nextIndex = 0;
+            }
+            var numb = Convert.ToInt32(input[i].ToString());
+            var nextNumb = Convert.ToInt32(input[nextIndex].ToString());
+            if (numb == nextNumb)
+            {
+                result += numb;
+            }
         }
 
         return result;
