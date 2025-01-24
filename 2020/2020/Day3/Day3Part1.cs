@@ -10,7 +10,7 @@ public class Day3Part1 : Part<int>
 
         var x = 3;
         
-        for (var i = 1; i < rows.Length - 1; i++)
+        for (var i = 1; i < rows.Length; i++)
         {
             if (x >= rows[0].Length)
             {
