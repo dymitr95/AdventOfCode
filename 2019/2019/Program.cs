@@ -15,7 +15,7 @@ var totalTime = 0.0;
 // totalTime += dayTwo.Solve();
 
 //DAY 3
-var dayThree = new Day<int, int>(3, "../../../Input/day3.txt", new Day3Part1());
+var dayThree = new Day<int, int>(3, "../../../Input/day3.txt", new Day3Part1(), new Day3Part2());
 totalTime += dayThree.Solve();
 
 Console.WriteLine(new string('-', 20));
