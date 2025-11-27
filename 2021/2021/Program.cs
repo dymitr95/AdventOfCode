@@ -42,8 +42,8 @@ var totalTime = 0.0;
 //DAY 5
 Console.WriteLine("> Day 5 <");
 var day5 = new Day<int, int>("./Input/day5.txt");
-totalTime += day5.RunPartOne(new Day5Part1());
-//totalTime += day5.RunPartTwo(new Day5Part2());
+//totalTime += day5.RunPartOne(new Day5Part1());
+totalTime += day5.RunPartTwo(new Day5Part2());
 Console.WriteLine(new string('-', 20));
 
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");
