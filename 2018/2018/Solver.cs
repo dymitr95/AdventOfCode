@@ -32,6 +32,10 @@ public class Solver<T1,T2>
 
     private static string GetInput(string inputPath)
     {
+        if (string.IsNullOrEmpty(inputPath))
+        {
+            return "";
+        }
         using var reader = new StreamReader(inputPath);
         var dataString = reader.ReadToEnd();
         reader.Close();

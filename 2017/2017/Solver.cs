@@ -2,15 +2,10 @@
 
 namespace _2017;
 
-public class Solver<T1,T2>
+public class Solver<T1, T2>(string inputPath)
 {
-    private string Input { get; }
+    private string Input { get; } = GetInput(inputPath);
     private double TotalTime { get; set; }
-    
-    public Solver(string inputPath)
-    {
-        Input = GetInput(inputPath);
-    }
 
     public double RunPartOne(Part<T1> partOne)
     {
@@ -32,6 +27,10 @@ public class Solver<T1,T2>
 
     private static string GetInput(string inputPath)
     {
+        if (string.IsNullOrEmpty(inputPath))
+        {
+            return "";
+        }
         using var reader = new StreamReader(inputPath);
         var dataString = reader.ReadToEnd();
         reader.Close();
