@@ -4,6 +4,7 @@ using _2021.Day2;
 using _2021.Day3;
 using _2021.Day4;
 using _2021.Day5;
+using _2021.Day6;
 
 var totalTime = 0.0;
 
@@ -39,11 +40,19 @@ var totalTime = 0.0;
 // Console.WriteLine(new string('-', 20));
 
 
-//DAY 5
-Console.WriteLine("> Day 5 <");
-var day5 = new Day<int, int>("./Input/day5.txt");
-//totalTime += day5.RunPartOne(new Day5Part1());
-totalTime += day5.RunPartTwo(new Day5Part2());
+// //DAY 5
+// Console.WriteLine("> Day 5 <");
+// var day5 = new Day<int, int>("./Input/day5.txt");
+// //totalTime += day5.RunPartOne(new Day5Part1());
+// totalTime += day5.RunPartTwo(new Day5Part2());
+// Console.WriteLine(new string('-', 20));
+
+
+//DAY 6
+Console.WriteLine("> Day 6 <");
+var day6 = new Day<int, ulong>("./Input/day6.txt");
+//totalTime += day6.RunPartOne(new Day6Part1());
+totalTime += day6.RunPartTwo(new Day6Part2());
 Console.WriteLine(new string('-', 20));
 
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");
