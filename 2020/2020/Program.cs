@@ -20,7 +20,7 @@ var totalTime = 0.0;
 // totalTime += day3.Solve();
 
 //DAY 4
-var day4 = new Day<int, int>(4, new Day4Part1());
+var day4 = new Day<int, int>(4, new Day4Part1(), new Day4Part2());
 totalTime += day4.Solve();
 
 
