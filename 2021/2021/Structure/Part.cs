@@ -1,4 +1,4 @@
-﻿namespace _2021;
+﻿namespace _2021.Structure;
 
 public abstract class Part<T>
 {

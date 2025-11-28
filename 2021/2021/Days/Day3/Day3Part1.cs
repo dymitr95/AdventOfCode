@@ -1,11 +1,11 @@
-﻿namespace _2021.Day3;
+﻿using _2021.Structure;
+
+namespace _2021.Days.Day3;
 
 public class Day3Part1 : Part<int>
 {
     public override int Run(string input)
     {
-        var result = 0;
-
         var rows = input.Split("\r\n");
 
         var numbers = new List<List<int>>();

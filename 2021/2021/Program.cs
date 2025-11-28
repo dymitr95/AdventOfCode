@@ -1,58 +1,43 @@
 ﻿using _2021;
-using _2021.Day1;
-using _2021.Day2;
-using _2021.Day3;
-using _2021.Day4;
-using _2021.Day5;
-using _2021.Day6;
+using _2021.Days.Day1;
+using _2021.Days.Day2;
+using _2021.Days.Day3;
+using _2021.Days.Day4;
+using _2021.Days.Day5;
+using _2021.Days.Day6;
+using _2021.Days.Day7;
+using _2021.Structure;
 
 var totalTime = 0.0;
 
 //DAY 1
-// Console.WriteLine("> Day 1 <");
-// var day1 = new Day<int, int>("./Input/day1.txt");
-// totalTime += day1.RunPartOne(new Day1Part1());
-// totalTime += day1.RunPartTwo(new Day1Part2());
-// Console.WriteLine(new string('-', 20));
-//
-//
-// //DAY 2
-// Console.WriteLine("> Day 2 <");
-// var day2 = new Day<int, int>("./Input/day2.txt");
-// totalTime += day2.RunPartOne(new Day2Part1());
-// totalTime += day2.RunPartTwo(new Day2Part2());
-// Console.WriteLine(new string('-', 20));
-//
-//
-// //DAY 3
-// Console.WriteLine("> Day 3 <");
-// var day3 = new Day<int, int>("./Input/day3.txt");
-// totalTime += day3.RunPartOne(new Day3Part1());
-// totalTime += day3.RunPartTwo(new Day3Part2());
-// Console.WriteLine(new string('-', 20));
+// var day1 = new Day<int, int>(1, new Day1Part1(), new Day1Part2());
+// totalTime += day1.Solve();
 
+//DAY 2
+// var day2 = new Day<int, int>(2, new Day2Part1(), new Day2Part2());
+// totalTime += day2.Solve();
 
-// //DAY 4
-// Console.WriteLine("> Day 4 <");
-// var day4 = new Day<int, int>("./Input/day4.txt");
-// //totalTime += day4.RunPartOne(new Day4Part1());
-// totalTime += day4.RunPartTwo(new Day4Part2());
-// Console.WriteLine(new string('-', 20));
+//DAY 3
+// var day3 = new Day<int, int>(3, new Day3Part1(), new Day3Part2());
+// totalTime += day3.Solve();
 
+//DAY 4
+// var day4 = new Day<int, int>(4, new Day4Part1(), new Day4Part2());
+// totalTime += day4.Solve();
 
-// //DAY 5
-// Console.WriteLine("> Day 5 <");
-// var day5 = new Day<int, int>("./Input/day5.txt");
-// //totalTime += day5.RunPartOne(new Day5Part1());
-// totalTime += day5.RunPartTwo(new Day5Part2());
-// Console.WriteLine(new string('-', 20));
-
+//DAY 5
+// var day5 = new Day<int, int>(5, new Day5Part1(), new Day5Part2());
+// totalTime += day5.Solve();
 
 //DAY 6
-Console.WriteLine("> Day 6 <");
-var day6 = new Day<int, ulong>("./Input/day6.txt");
-//totalTime += day6.RunPartOne(new Day6Part1());
-totalTime += day6.RunPartTwo(new Day6Part2());
-Console.WriteLine(new string('-', 20));
+// var day6 = new Day<int, ulong>(6, new Day6Part1(), new Day6Part2());
+// totalTime += day6.Solve();
 
+//DAY 7
+var day7 = new Day<int, ulong>(7, new Day7Part1());
+totalTime += day7.Solve();
+
+
+Console.WriteLine(new string('-', 20));
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");

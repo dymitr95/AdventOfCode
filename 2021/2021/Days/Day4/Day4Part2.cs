@@ -1,11 +1,11 @@
-﻿namespace _2021.Day4;
+﻿using _2021.Structure;
+
+namespace _2021.Days.Day4;
 
 public class Day4Part2 : Part<int>
 {
   public override int Run(string input)
     {
-        var result = 0;
-        
         var rows = input.Split("\r\n");
         
         var valuesStr = rows[0].Split(',');
@@ -27,7 +27,7 @@ public class Day4Part2 : Part<int>
 
                 if (!board.IsWon()) continue;
                 board.Won = true;
-                result = value * board.GetSum();
+                var result = value * board.GetSum();
                 results.Add(result);
             }
         }
