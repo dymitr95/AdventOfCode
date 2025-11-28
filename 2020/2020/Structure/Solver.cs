@@ -1,16 +1,10 @@
 ﻿using System.Diagnostics;
 
-namespace _2020;
+namespace _2020.Structure;
 
-public class Day<T1,T2>
+public class Solver<T1, T2>(string inputPath)
 {
-    private string Input { get; }
-    private double TotalTime { get; set; }
-    
-    public Day(string inputPath)
-    {
-        Input = GetInput(inputPath);
-    }
+    private string Input { get; } = GetInput(inputPath);
 
     public double RunPartOne(Part<T1> partOne)
     {

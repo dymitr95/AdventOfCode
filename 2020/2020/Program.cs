@@ -1,30 +1,23 @@
-﻿using _2020;
-using _2020.Day1;
-using _2020.Day2;
-using _2020.Day3;
+﻿using _2020.Days.Day1;
+using _2020.Days.Day2;
+using _2020.Days.Day3;
+using _2020.Structure;
 
 var totalTime = 0.0;
 
 
 //DAY 1
-Console.WriteLine("> Day 1 <");
-var day = new Day<int, int>("../../../Input/day1.txt");
-totalTime += day.RunPartOne(new Day1Part1());
-totalTime += day.RunPartTwo(new Day1Part2());
-Console.WriteLine(new string('-', 20));
+var day1 = new Day<int, int>(1, new Day1Part1(), new Day1Part2());
+totalTime += day1.Solve();
 
 //DAY 2
-Console.WriteLine("> Day 2 <");
-day = new Day<int, int>("../../../Input/day2.txt");
-totalTime += day.RunPartOne(new Day2Part1());
-totalTime += day.RunPartTwo(new Day2Part2());
-Console.WriteLine(new string('-', 20));
+var day2 = new Day<int, int>(2, new Day2Part1(), new Day2Part2());
+totalTime += day2.Solve();
 
 //DAY 3
-Console.WriteLine("> Day 3 <");
-day = new Day<int, int>("../../../Input/day3.txt");
-totalTime += day.RunPartOne(new Day3Part1());
-totalTime += day.RunPartTwo(new Day3Part2());
-Console.WriteLine(new string('-', 20));
+var day3 = new Day<int, int>(3, new Day3Part1(), new Day3Part2());
+totalTime += day3.Solve();
 
+
+Console.WriteLine(new string('-', 20));
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");

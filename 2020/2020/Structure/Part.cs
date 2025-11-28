@@ -1,4 +1,4 @@
-﻿namespace _2020;
+﻿namespace _2020.Structure;
 
 public abstract class Part<T>
 {
