@@ -2,6 +2,7 @@
 using _2020.Days.Day2;
 using _2020.Days.Day3;
 using _2020.Days.Day4;
+using _2020.Days.Day5;
 using _2020.Structure;
 
 var totalTime = 0.0;
@@ -19,10 +20,13 @@ var totalTime = 0.0;
 // var day3 = new Day<int, int>(3, new Day3Part1(), new Day3Part2());
 // totalTime += day3.Solve();
 
-//DAY 4
-var day4 = new Day<int, int>(4, new Day4Part1(), new Day4Part2());
-totalTime += day4.Solve();
+// //DAY 4
+// var day4 = new Day<int, int>(4, new Day4Part1(), new Day4Part2());
+// totalTime += day4.Solve();
 
+//DAY 5
+var day5 = new Day<int, int>(5, new Day5Part1());
+totalTime += day5.Solve();
 
 Console.WriteLine(new string('-', 20));
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");
