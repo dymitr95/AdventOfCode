@@ -35,7 +35,7 @@ var totalTime = 0.0;
 // totalTime += day6.Solve();
 
 //DAY 7
-var day7 = new Day<int, ulong>(7, new Day7Part1());
+var day7 = new Day<int, int>(7, new Day7Part1(), new Day7Part2());
 totalTime += day7.Solve();
 
 
