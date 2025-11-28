@@ -9,66 +9,41 @@ public class Day6Part2 : Part<int>
     {
         var rows = input.Split("\r\n");
 
-        var ids = rows.Select(GetUId).ToList();
-
-        for (var i = ids.Min(); i < ids.Max(); i++)
-        {
-            if (!ids.Contains(i))
-            {
-                return i;
-            }
-        }
+        var groupAnswers = new Dictionary<char, int>();
+        var groupSize = 0;
         
-        return -1;
-    }
-
-    private static int GetColumn(int start, int end, string sequence)
-    {
-        var middle = (start + end) / 2;
-        if (sequence.Length == 1)
+        var result = 0;
+        
+        foreach(var row in rows)
         {
-            if (sequence == "F")
+            if (row == "")
             {
-                return middle;
+                result += GetCommonAnswersCount(groupAnswers, groupSize);
+                groupSize = 0;
+                groupAnswers = [];
+                continue;
             }
-
-            return middle + 1;
+            
+            GetYesAnswers(groupAnswers, row);
+            groupSize++;
         }
 
-        if (sequence[0] == 'F')
-        {
-            return GetColumn(start, middle, sequence[1..]);
-        }
-
-        return GetColumn(middle + 1, end, sequence[1..]);
-    }
-    
-    private static int GetRow(int start, int end, string sequence)
-    {
-        var middle = (start + end) / 2;
-        if (sequence.Length == 1)
-        {
-            if (sequence == "L")
-            {
-                return middle;
-            }
-
-            return middle + 1;
-        }
-
-        if (sequence[0] == 'L')
-        {
-            return GetRow(start, middle, sequence[1..]);
-        }
-
-        return GetRow(middle + 1, end, sequence[1..]);
+        result += GetCommonAnswersCount(groupAnswers, groupSize);
+        
+        return result;
     }
 
-    private static int GetUId(string sequence)
-    {
-        var row = GetColumn(0, 127, sequence[..7]);
-        var col = GetRow(0, 7, sequence[7..]);
 
-        return row * 8 + col;
+    private static void GetYesAnswers(Dictionary<char, int> groupAnswers, string answers)
+    {
+        foreach (var answer in answers.Where(answer => !groupAnswers.TryAdd(answer, 1)))
+        {
+            groupAnswers[answer] += 1;
+        }
+    }
+
+    private static int GetCommonAnswersCount(Dictionary<char, int> groupAnswers, int groupSize)
+    {
+        return groupAnswers.Keys.Count(answer => groupAnswers[answer] == groupSize);
     }
 }
