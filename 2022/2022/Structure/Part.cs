@@ -1,4 +1,4 @@
-﻿namespace _2022;
+﻿namespace _2022.Structure;
 
 public abstract class Part<T>
 {

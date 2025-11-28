@@ -1,4 +1,6 @@
-﻿namespace _2022.Day3;
+﻿using _2022.Structure;
+
+namespace _2022.Days.Day3;
 
 public class Day3Part2 : Part<int>
 {

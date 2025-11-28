@@ -1,6 +1,8 @@
-﻿namespace _2022.Day4;
+﻿using _2022.Structure;
 
-public class Day4Part2 : Part<int>
+namespace _2022.Days.Day4;
+
+public class Day4Part1 : Part<int>
 {
     public override int Run(string input)
     {
@@ -19,11 +21,11 @@ public class Day4Part2 : Part<int>
             var startTwo = Convert.ToInt32(secondArea[0]);
             var endTwo = Convert.ToInt32(secondArea[1]);
 
-            if (startTwo >= startOne && startTwo <= endOne)
+            if (startTwo >= startOne && endTwo <= endOne)
             {
                 result++;
             }
-            else if (startOne >= startTwo && startOne <= endTwo)
+            else if (startOne >= startTwo && endOne <= endTwo)
             {
                 result++;
             }
