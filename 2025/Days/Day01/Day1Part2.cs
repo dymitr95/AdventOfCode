@@ -2,7 +2,7 @@
 
 namespace _2025.Days.Day01;
 
-public class DayOnePartOne : Part<string>
+public class Day1Part2 : Part<string>
 {
     public override string Run(string input)
     {
