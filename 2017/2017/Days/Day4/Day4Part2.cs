@@ -1,6 +1,8 @@
-﻿namespace _2017.Day4;
+﻿using _2017.Structure;
 
-public class Day4Part1 : Part<int>
+namespace _2017.Days.Day4;
+
+public class Day4Part2 : Part<int>
 {
     public override int Run(string input)
     {
@@ -20,12 +22,13 @@ public class Day4Part1 : Part<int>
             var isValid = true;
             foreach (var word in words)
             {
-                if (checkedWords.Contains(word))
+                var sortedWord = new string(word.OrderBy(c => c).ToArray());
+                if (checkedWords.Contains(sortedWord))
                 {
                     isValid = false;
                     break;
                 }
-                checkedWords.Add(word);
+                checkedWords.Add(sortedWord);
             }
 
             if (isValid)

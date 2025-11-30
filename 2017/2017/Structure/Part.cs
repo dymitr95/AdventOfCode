@@ -1,4 +1,4 @@
-﻿namespace _2017;
+﻿namespace _2017.Structure;
 
 public abstract class Part<T>
 {

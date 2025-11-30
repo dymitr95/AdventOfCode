@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace _2017;
+namespace _2017.Structure;
 
 public class Solver<T1, T2>(string inputPath)
 {
@@ -27,10 +27,6 @@ public class Solver<T1, T2>(string inputPath)
 
     private static string GetInput(string inputPath)
     {
-        if (string.IsNullOrEmpty(inputPath))
-        {
-            return "";
-        }
         using var reader = new StreamReader(inputPath);
         var dataString = reader.ReadToEnd();
         reader.Close();
