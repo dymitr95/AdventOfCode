@@ -1,6 +1,7 @@
 ﻿using _2017;
 using _2017.Days.Day5;
 using _2017.Days.Day6;
+using _2017.Days.Day7;
 using _2017.Structure;
 
 var totalTime = 0.0;
@@ -25,9 +26,13 @@ var totalTime = 0.0;
 // var day5 = new Day<int, int>(5, new Day5Part1(), new Day5Part2());
 // totalTime += day5.Solve();
 
-//DAY 6
-var day6 = new Day<int, int>(6, new Day6Part1(), new Day6Part2());
-totalTime += day6.Solve();
+// //DAY 6
+// var day6 = new Day<int, int>(6, new Day6Part1(), new Day6Part2());
+// totalTime += day6.Solve();
+
+//DAY 7
+var day7 = new Day<string, int>(7, new Day7Part1());
+totalTime += day7.Solve();
 
 Console.WriteLine(new string('-', 20));
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");
