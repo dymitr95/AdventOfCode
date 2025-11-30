@@ -6,11 +6,11 @@ public class Day<T1, T2>
     private Part<T1> PartOne { get; set; }
     private Part<T2>? PartTwo { get; set; }
     
-    public Day(int dayNumber, string inputPath, Part<T1> partOne, Part<T2>? partTwo = null)
+    public Day(int dayNumber, Part<T1> partOne, Part<T2>? partTwo = null)
     {
         Console.WriteLine(new string('-', 20));
         Console.WriteLine($"> Day {dayNumber} <");
-        InputPath = inputPath;
+        InputPath = $"../../../Input/day{dayNumber}.txt";
         PartOne = partOne;
         PartTwo = partTwo;
     }

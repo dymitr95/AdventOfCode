@@ -3,25 +3,30 @@ using _2019.Day1;
 using _2019.Day2;
 using _2019.Day3;
 using _2019.Day4;
+using _2019.Day5;
 
 var totalTime = 0.0;
 
 
 // //DAY 1
-// var dayOne = new Day<int, int>(1, "../../../Input/day1.txt", new Day1Part1(), new Day1Part2());
-// totalTime += dayOne.Solve();
+// var day1 = new Day<int, int>(1, new Day1Part1(), new Day1Part2());
+// totalTime += day1.Solve();
 //
 // //DAY 2
-// var dayTwo = new Day<int, int>(2, "../../../Input/day2.txt", new Day2Part1(), new Day2Part2());
-// totalTime += dayTwo.Solve();
+// var day2 = new Day<int, int>(2, new Day2Part1(), new Day2Part2());
+// totalTime += day2.Solve();
 
 // //DAY 3
-// var dayThree = new Day<int, int>(3, "../../../Input/day3.txt", new Day3Part1(), new Day3Part2());
-// totalTime += dayThree.Solve();
+// var day3 = new Day<int, int>(3, new Day3Part1(), new Day3Part2());
+// totalTime += day3.Solve();
+
+// //DAY 4
+// var day4 = new Day<int, int>(4, new Day4Part1(), new Day4Part2());
+// totalTime += day4.Solve();
 
 //DAY 4
-var dayFour = new Day<int, int>(3, "../../../Input/day4.txt", new Day4Part1(), new Day4Part2());
-totalTime += dayFour.Solve();
+var day5 = new Day<int, int>(5, new Day5Part1());
+totalTime += day5.Solve();
 
 Console.WriteLine(new string('-', 20));
 Console.WriteLine($"Total runtime: {totalTime:F3} ms");
