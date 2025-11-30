@@ -63,8 +63,8 @@ public class Day5Part1 : Part<int>
                     currentPosition += 2;
                     break;
                 case 4:
-                    resultValue = instructions[currentPosition + 1];
-                    output.Add(instructions[resultValue]);
+                    resultValue = GetValue(instructions, currentPosition + 1, mode1);
+                    output.Add(resultValue);
                     
                     currentPosition += 2;
                     break;

@@ -3,10 +3,10 @@
 public class Day<T1, T2>
 {
     private string InputPath { get; set; }
-    private Part<T1> PartOne { get; set; }
+    private Part<T1>? PartOne { get; set; }
     private Part<T2>? PartTwo { get; set; }
     
-    public Day(int dayNumber, Part<T1> partOne, Part<T2>? partTwo = null)
+    public Day(int dayNumber, Part<T1>? partOne, Part<T2>? partTwo = null)
     {
         Console.WriteLine(new string('-', 20));
         Console.WriteLine($"> Day {dayNumber} <");
@@ -19,14 +19,17 @@ public class Day<T1, T2>
     {
         var totalTime = 0.0;
         var solver = new Solver<T1, T2>(InputPath);
-        totalTime += solver.RunPartOne(PartOne);
 
-        if (PartTwo == null)
+        if (PartOne != null)
         {
-            return totalTime;
+            totalTime += solver.RunPartOne(PartOne);
         }
         
-        totalTime += solver.RunPartTwo(PartTwo);
+        if (PartTwo != null)
+        {
+            totalTime += solver.RunPartTwo(PartTwo);
+        }
+        
         return totalTime;
     }
 }

@@ -13,3 +13,7 @@ F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\refint\2019.dll
 F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.pdb
 F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.genruntimeconfig.cache
 F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\ref\2019.dll
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.csproj.AssemblyReference.cache
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\nunit.framework.dll
+F:\C#\AdventOfCode\2019\2019\bin\Debug\net8.0\nunit.framework.legacy.dll
+F:\C#\AdventOfCode\2019\2019\obj\Debug\net8.0\2019.csproj.Up2Date
