@@ -26,7 +26,7 @@ var totalTime = 0.0;
 // totalTime += day5.Solve();
 
 //DAY 6
-var day6 = new Day<int, int>(6, new Day6Part1());
+var day6 = new Day<int, int>(6, new Day6Part1(), new Day6Part2());
 totalTime += day6.Solve();
 
 Console.WriteLine(new string('-', 20));

@@ -6,43 +6,65 @@ public class Day6Part2 : Part<int>
 {
     public override int Run(string input)
     {
-        var rows = input.Split("\r\n");
-        var values = rows.Select(r => Convert.ToInt32(r)).ToArray();
+        var data = input.Split("\t").Select(s => Convert.ToInt32(s)).ToArray();
 
-        var result = CountJumps(values);
+        var banks = GetBanks(data);
+
+        var previousStates = new HashSet<string> { GetBanksState(banks) };
+
+        var secondLoop = false;
+        var valueToFind = "";
         
-        return result;
-    }
-
-
-    private static int CountJumps(int[] values)
-    {
-        var jumps = 0;
-        var index = 0;
-
         while (true)
         {
-            var nextIndex = index + values[index];
+            var bank = GetMemoryBankWithMostBlocks(banks);
+            var blocks = bank.Blocks;
+            bank.Blocks = 0;
+            var currentPosition = bank.Id;
+
+            while (blocks != 0)
+            {
+                currentPosition += 1;
+                currentPosition %= banks.Count;
+                banks[currentPosition].Blocks += 1;
+                blocks--;
+            }
             
-            if (nextIndex >= values.Length || nextIndex < 0)
+            var state = GetBanksState(banks);
+
+            if (state == valueToFind)
             {
                 break;
             }
             
-            if (values[index] >= 3)
+            if (!previousStates.Add(state) && !secondLoop)
             {
-                values[index] -= 1;
+                previousStates = [];
+                secondLoop = true;
+                valueToFind = state;
             }
-            else
-            {
-                values[index] += 1;
-            }
+            
 
-            index = nextIndex;
-            jumps++;
+            previousStates.Add(state);
         }
         
-        return jumps + 1;
+        return previousStates.Count;
+    }
+
+    private static string GetBanksState(List<MemoryBank> banks)
+    {
+        return string.Join(",", banks.Select(b => b.Blocks.ToString()));
+    }
+
+    private static List<MemoryBank> GetBanks(int[] data)
+    {
+        return data.Select((value, id) => new MemoryBank(id, value)).ToList();
+    }
+
+    private static MemoryBank GetMemoryBankWithMostBlocks(List<MemoryBank> banks)
+    {
+        var orderedBanks = banks.OrderBy(b => b.Blocks).ToList();
+        return orderedBanks.First(b => b.Blocks == orderedBanks[^1].Blocks);
     }
     
     

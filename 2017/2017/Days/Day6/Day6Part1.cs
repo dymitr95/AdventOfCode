@@ -13,6 +13,8 @@ public class Day6Part1 : Part<int>
 
         var previousStates = new HashSet<string> { GetBanksState(banks) };
 
+        var secondLoop = false;
+        
         while (true)
         {
             var bank = GetMemoryBankWithMostBlocks(banks);
@@ -29,7 +31,7 @@ public class Day6Part1 : Part<int>
             }
             
             var state = GetBanksState(banks);
-            if (!previousStates.Add(state))
+            if (!previousStates.Add(state) && !secondLoop)
             {
                 break;
             }
