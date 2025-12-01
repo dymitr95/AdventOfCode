@@ -4,7 +4,7 @@ using _2025.Structure;
 var totalTime = 0.0;
 
 //DAY 1
-var day1 = new Day<string,string>(1, new Day1Part1(), new Day1Part2());
+var day1 = new Day<int,string>(1, new Day1Part1());
 totalTime += day1.Solve();
 
 
