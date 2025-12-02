@@ -9,7 +9,7 @@ var totalTime = 0.0;
 // totalTime += day1.Solve();
 
 //DAY 2
-var day2 = new Day<ulong, string>(2, new Day2Part1(), new Day2Part2());
+var day2 = new Day<ulong, ulong>(2, new Day2Part1(), new Day2Part2());
 totalTime += day2.Solve();
 
 
