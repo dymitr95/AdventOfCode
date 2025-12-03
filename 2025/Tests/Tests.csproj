@@ -25,8 +25,4 @@
       <ProjectReference Include="..\2025.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Days\Day03\" />
-    </ItemGroup>
-
 </Project>
