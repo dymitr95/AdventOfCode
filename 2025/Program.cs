@@ -7,23 +7,23 @@ using _2025.Structure;
 var totalTime = 0.0;
 var dayTotalTime = 0.0;
 
-//DAY 1
-var day1 = new Day<int, int>(1, new Day1Part1(), new Day1Part2());
-dayTotalTime = day1.Solve();
-Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
-totalTime += dayTotalTime;
-
-//DAY 2
-var day2 = new Day<ulong, ulong>(2, new Day2Part1(), new Day2Part2());
-dayTotalTime = day2.Solve();
-Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
-totalTime += dayTotalTime;
-
-//DAY 3
-var day3 = new Day<int, long>(3, new Day3Part1(), new Day3Part2());
-dayTotalTime = day3.Solve();
-Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
-totalTime += dayTotalTime;
+// //DAY 1
+// var day1 = new Day<int, int>(1, new Day1Part1(), new Day1Part2());
+// dayTotalTime = day1.Solve();
+// Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
+// totalTime += dayTotalTime;
+//
+// //DAY 2
+// var day2 = new Day<ulong, ulong>(2, new Day2Part1(), new Day2Part2());
+// dayTotalTime = day2.Solve();
+// Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
+// totalTime += dayTotalTime;
+//
+// //DAY 3
+// var day3 = new Day<int, long>(3, new Day3Part1(), new Day3Part2());
+// dayTotalTime = day3.Solve();
+// Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
+// totalTime += dayTotalTime;
 
 //DAY 4
 var day4 = new Day<int, int>(4, new Day4Part1(), new Day4Part2());
