@@ -7,31 +7,31 @@ public class Day5Part2 : Part<long>
     public override long Run(string input)
     {
         var rows = input.Split("\r\n");
-        var result = 0L;
 
         var ingredients = GetFreshIngredientsIds(rows);
+        ingredients = ingredients.OrderBy(i => i.Min).ToList();
+        
         var ingredientsWithoutOverlaps = new List<Range>();
-
-        foreach (var range in ingredients)
+        var currentRange = ingredients[0];
+        
+        for (var i = 1; i < ingredients.Count; i++)
         {
-            var rangeWithoutOverlaps = GetRangeWithoutOverlaps(ingredientsWithoutOverlaps, range);
-            if (rangeWithoutOverlaps.Max != -1)
-            {
-                ingredientsWithoutOverlaps.Add(rangeWithoutOverlaps);
-            }
-        }
+            var nextRange = ingredients[i];
 
-        foreach (var range in ingredientsWithoutOverlaps)
-        {
-            if (ingredientsWithoutOverlaps.FirstOrDefault(r => r.Min < range.Min && r.Max > range.Max) != null)
+            if (nextRange.Min <= currentRange.Max)
             {
-                continue;
+                currentRange = currentRange with { Max = Math.Max(nextRange.Max, currentRange.Max) };
             }
-            
-            result += range.Max - range.Min + 1;
+            else
+            {
+                ingredientsWithoutOverlaps.Add(currentRange);
+                currentRange = nextRange;
+            }
         }
         
-        return result;
+        ingredientsWithoutOverlaps.Add(currentRange);
+
+        return ingredientsWithoutOverlaps.Sum(range => range.Max - range.Min + 1);
     }
 
     private static List<Range> GetFreshIngredientsIds(string[] rows)
@@ -53,39 +53,6 @@ public class Day5Part2 : Part<long>
         }
 
         return res;
-    }
-
-
-    private static Range GetRangeWithoutOverlaps(List<Range> ranges, Range range)
-    {
-        foreach (var knownRange in ranges)
-        {
-            range = InMinRange(range, knownRange);
-            range = InMaxRange(range, knownRange);
-        }
-
-        return range.Max < range.Min ? new Range(-1,-1) : range;
-    }
-
-
-    private static Range InMinRange(Range range, Range targetRange)
-    {
-        if (targetRange.Min <= range.Min && targetRange.Max >= range.Min)
-        {
-            range = range with { Min = targetRange.Max + 1 };
-        }
-
-        return range;
-    }
-    
-    private static Range InMaxRange(Range range, Range targetRange)
-    {
-        if (targetRange.Max >= range.Max && targetRange.Min <= range.Max)
-        {
-            range = range with { Max = targetRange.Min - 1 };
-        }
-
-        return range;
     }
     
 }
