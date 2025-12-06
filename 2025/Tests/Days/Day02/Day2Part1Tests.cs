@@ -1,6 +1,6 @@
 using _2025.Days.Day02;
 
-namespace _2025.Tests.Days.Day02;
+namespace Tests.Days.Day02;
 
 [TestFixture]
 public class Day2Part1Tests
