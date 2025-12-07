@@ -21,8 +21,6 @@ public class Day7Part1 : Part<int>
 
     private static int CountSplits(Point point, HashSet<Point> visitedPoints, string[][] map)
     {
-        
-
         if (point.Y == map.Length || !visitedPoints.Add(point))
         {
             return 0;
