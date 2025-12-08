@@ -6,6 +6,7 @@ using _2025.Days.Day05;
 using _2025.Days.Day06;
 using _2025.Days.Day07;
 using _2025.Days.Day08;
+using _2025.Days.Day09;
 using _2025.Structure;
 
 var totalTime = 0.0;
@@ -53,9 +54,15 @@ var dayTotalTime = 0.0;
 // Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
 // totalTime += dayTotalTime;
 
-//DAY 8
-var day8 = new Day<int, long>(8, new Day8Part1(), new Day8Part2());
-dayTotalTime = day8.Solve();
+// //DAY 8
+// var day8 = new Day<int, long>(8, new Day8Part1(), new Day8Part2());
+// dayTotalTime = day8.Solve();
+// Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
+// totalTime += dayTotalTime;
+
+//DAY 9
+var day9 = new Day<int, long>(9, new Day9Part1(), new Day9Part2());
+dayTotalTime = day9.Solve();
 Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
 totalTime += dayTotalTime;
 
