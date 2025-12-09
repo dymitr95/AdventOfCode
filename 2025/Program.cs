@@ -61,7 +61,7 @@ var dayTotalTime = 0.0;
 // totalTime += dayTotalTime;
 
 //DAY 9
-var day9 = new Day<int, long>(9, new Day9Part1(), new Day9Part2());
+var day9 = new Day<long, long>(9, new Day9Part1(), new Day9Part2());
 dayTotalTime = day9.Solve();
 Console.WriteLine($"Day total runtime: {dayTotalTime:F3} ms");
 totalTime += dayTotalTime;
