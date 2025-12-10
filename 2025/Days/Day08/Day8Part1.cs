@@ -80,8 +80,8 @@ public class Day8Part1 : Part<int>
 
     private static double CalculateDistance(Coord point1, Coord point2)
     {
-        return Math.Sqrt(Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2) +
-                         Math.Pow(point1.Z - point2.Z, 2));
+        return ((double)point1.X - point2.X) * ((double)point1.X - point2.X) + ((double)point1.Y - point2.Y) * ((double)point1.Y - point2.Y) +
+               ((double)point1.Z - point2.Z) * ((double)point1.Z - point2.Z);
     }
 }
 
