@@ -93,7 +93,7 @@ public class Day10Part1 : Part<int>
     
 }
 
-public readonly struct Button()
+public readonly record struct Button()
 {
     private readonly List<int> _lights = [];
 
