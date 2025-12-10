@@ -22,43 +22,6 @@ public class Day2Part2 : Part<ulong>
         return result;
     }
 
-    // private static ulong GetSumOfInvalidIdsInRange(ulong start, ulong end)
-    // {
-    //     var result = 0UL;
-    //
-    //     for (var i = start; i <= end; i++)
-    //     {
-    //         if (!ValidId(i))
-    //         {
-    //             result += i;
-    //         }
-    //     }
-    //
-    //     return result;
-    // }
-
-
-    private static bool ValidId(ulong id)
-    {
-        var idStr = id.ToString();
-
-        for (var i = 1; i <= idStr.Length / 2; i++)
-        {
-            if (idStr.Length % i != 0)
-            {
-                continue;
-            }
-
-            var part = idStr[..i];
-            if (string.Concat(Enumerable.Repeat(part, idStr.Length / i)) == idStr)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     private static ulong GetSumOfInvalidIdsInRange(ulong start, ulong end)
     {
         ulong result = 0;
