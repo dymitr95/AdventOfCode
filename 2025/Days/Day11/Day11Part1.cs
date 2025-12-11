@@ -7,13 +7,17 @@ public class Day11Part1 : Part<int>
     public override int Run(string input)
     {
         var rows = input.Split("\r\n");
-        var result = 0;
-
+        
         var nodes = ParseInput(rows);
 
-        var startNode = nodes.First(n => n.Value == "you");
-        var targetNode = nodes.First(n => n.Value == "out");
+        var startNode = nodes.FirstOrDefault(n => n.Value == "you");
+        var targetNode = nodes.FirstOrDefault(n => n.Value == "out");
 
+        if (startNode == null || targetNode == null)
+        {
+            return -1;
+        }
+        
         var paths = new List<List<string>>();
 
         FindPaths(startNode, targetNode, nodes, [], [], paths);
