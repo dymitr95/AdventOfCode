@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\C#\\AdventOfCode\\2016\\2016\\2016.csproj",
+      "projectUniqueName": "F:\\C#\\AdventOfCode\\2016\\2016.csproj",
       "projectName": "2016",
-      "projectPath": "F:\\C#\\AdventOfCode\\2016\\2016\\2016.csproj",
+      "projectPath": "F:\\C#\\AdventOfCode\\2016\\2016.csproj",
       "packagesPath": "C:\\Users\\ddrag\\.nuget\\packages\\",
-      "outputPath": "F:\\C#\\AdventOfCode\\2016\\2016\\obj\\",
+      "outputPath": "F:\\C#\\AdventOfCode\\2016\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ddrag\\AppData\\Roaming\\NuGet\\NuGet.Config",
